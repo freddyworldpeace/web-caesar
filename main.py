@@ -22,7 +22,10 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         message = "whats hannanin'!!"
         the_caesar = encrypt(message, 13)
-        self.response.write(the_caesar)
+        txt_area = "<textarea>" + the_caesar + "</textarea>"
+        submit = "<input type='submit' />"
+        form = "<form>" + txt_area + "<br>" + submit + "</form>"
+        self.response.write(form)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
